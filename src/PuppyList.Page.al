@@ -41,4 +41,28 @@ page 50101 "Puppy List"
             }
         }
     }
+
+    actions
+    {
+        area(Processing)
+        {
+            action(RequestVetAppointment)
+            {
+                ApplicationArea = All;
+                Caption = 'Request Vet Appointment';
+                Image = Calendar;
+                Promoted = true;
+                PromotedCategory = Process;
+                ToolTip = 'Request a veterinary appointment for the selected puppy.';
+
+                trigger OnAction()
+                var
+                    VetAppointmentMgt: Codeunit "Vet Appointment Mgt.";
+                begin
+                    VetAppointmentMgt.RequestAppointment(Rec."No.");
+                    Message('Appointment request sent successfully.');
+                end;
+            }
+        }
+    }
 }

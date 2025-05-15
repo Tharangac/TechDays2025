@@ -41,6 +41,29 @@ page 50102 "Puppy Card"
 
     actions
     {
+        area(Processing)
+        {
+            action(RequestVetAppointment)
+            {
+                ApplicationArea = All;
+                Caption = 'Request Vet Appointment';
+                Image = Calendar;
+                Promoted = true;
+                PromotedCategory = Process;
+                ToolTip = 'Request a new veterinary appointment for this puppy.';
 
+                trigger OnAction()
+                var
+                    VetAppointmentMgt: Codeunit "Vet Appointment Mgt.";
+                    RequestID: Text;
+                begin
+                    if not Confirm('Do you want to request a vet appointment for %1?', true, Rec.Name) then
+                        exit;
+
+                    RequestID := VetAppointmentMgt.RequestAppointment(Rec."No.");
+                    Message('Appointment request sent. Request ID: %1', RequestID);
+                end;
+            }
+        }
     }
 }
