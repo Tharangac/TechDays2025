@@ -1,0 +1,6 @@
+POST https://eoi4bj071vyjlvn.m.pipedream.net
+
+{
+    "petName": "Puppy",
+    "petBreed": "Cat"
+}
