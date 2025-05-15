@@ -20,7 +20,6 @@ table 50101 Puppy
         {
             Caption = 'Name';
             DataClassification = CustomerContent;
-
             trigger OnValidate()
             begin
                 if (Rec.Name <> xRec.Name) and (Rec.Name <> '') then

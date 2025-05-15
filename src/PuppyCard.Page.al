@@ -37,39 +37,10 @@ page 50102 "Puppy Card"
                 }
             }
         }
-        area(FactBoxes)
-        {
-            part("Puppy Mood History"; "Puppy Mood History FactBox")
-            {
-                ApplicationArea = All;
-                SubPageLink = "Puppy No." = field("No.");
-            }
-        }
     }
 
     actions
     {
-        area(Navigation)
-        {
-            action(MoodLog)
-            {
-                ApplicationArea = All;
-                Caption = 'Mood Log';
-                Image = History;
-                RunObject = Page "Puppy Mood Log List";
-                RunPageLink = "Puppy No." = field("No.");
-                ToolTip = 'View mood log entries for this puppy.';
-            }
-            action(NewMoodLog)
-            {
-                ApplicationArea = All;
-                Caption = 'New Mood Log Entry';
-                Image = New;
-                RunObject = Page "Puppy Mood Log Card";
-                RunPageLink = "Puppy No." = field("No.");
-                RunPageMode = Create;
-                ToolTip = 'Create a new mood log entry for this puppy.';
-            }
-        }
+
     }
 }
