@@ -1,6 +1,6 @@
 namespace DefaultPublisher.BCTechDays2025;
 
-enum 50100 "Vet Appointment Status"
+enum 50100 "Vet Appointment Status_TD"
 {
     Extensible = true;
 

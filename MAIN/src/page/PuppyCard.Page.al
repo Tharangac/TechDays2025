@@ -1,23 +1,19 @@
 namespace DefaultPublisher.BCTechDays2025;
 
-page 50101 "Puppy List"
+page 50102 "Puppy Card_TD"
 {
-    PageType = List;
-    ApplicationArea = All;
-    UsageCategory = Lists;
-    SourceTable = Puppy;
-    CardPageId = "Puppy Card";
-    Editable = false;
-    Caption = 'Puppies';
-    InherentPermissions = X;
-    InherentEntitlements = X;
+    PageType = Card;
+    SourceTable = Puppy_TD;
+    Caption = 'Puppy Card';
 
     layout
     {
         area(Content)
         {
-            repeater(GroupName)
+            group(General)
             {
+                Caption = 'General';
+
                 field("No."; Rec."No.")
                 {
                     ApplicationArea = All;
@@ -27,6 +23,7 @@ page 50101 "Puppy List"
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the puppy name.';
+                    ShowMandatory = true;
                 }
                 field(Breed; Rec.Breed)
                 {
@@ -53,14 +50,18 @@ page 50101 "Puppy List"
                 Image = Calendar;
                 Promoted = true;
                 PromotedCategory = Process;
-                ToolTip = 'Request a veterinary appointment for the selected puppy.';
+                ToolTip = 'Request a new veterinary appointment for this puppy.';
 
                 trigger OnAction()
                 var
-                    VetAppointmentMgt: Codeunit "Vet Appointment Mgt.";
+                    VetAppointmentMgt: Codeunit "Vet Appointment Mgt._TD";
+                    RequestID: Text;
                 begin
-                    VetAppointmentMgt.RequestAppointment(Rec."No.");
-                    Message('Appointment request sent successfully.');
+                    if not Confirm('Do you want to request a vet appointment for %1?', true, Rec.Name) then
+                        exit;
+
+                    RequestID := VetAppointmentMgt.RequestAppointment(Rec."No.");
+                    Message('Appointment request sent. Request ID: %1', RequestID);
                 end;
             }
         }

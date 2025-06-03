@@ -1,11 +1,11 @@
 namespace DefaultPublisher.BCTechDays2025;
 
-page 50103 "Vet Appointment List"
+page 50103 "Vet Appointment List_TD"
 {
     PageType = List;
     ApplicationArea = All;
     UsageCategory = Lists;
-    SourceTable = "Vet Appointment";
+    SourceTable = "Vet Appointment_TD";
     Editable = false;
     Caption = 'Vet Appointments';
     InherentPermissions = X;

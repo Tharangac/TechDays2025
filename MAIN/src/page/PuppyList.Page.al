@@ -1,19 +1,23 @@
 namespace DefaultPublisher.BCTechDays2025;
 
-page 50102 "Puppy Card"
+page 50101 "Puppy List_TD"
 {
-    PageType = Card;
-    SourceTable = Puppy;
-    Caption = 'Puppy Card';
+    PageType = List;
+    ApplicationArea = All;
+    UsageCategory = Lists;
+    SourceTable = Puppy_TD;
+    CardPageId = "Puppy Card_TD";
+    Editable = false;
+    Caption = 'Puppies';
+    InherentPermissions = X;
+    InherentEntitlements = X;
 
     layout
     {
         area(Content)
         {
-            group(General)
+            repeater(GroupName)
             {
-                Caption = 'General';
-
                 field("No."; Rec."No.")
                 {
                     ApplicationArea = All;
@@ -23,7 +27,6 @@ page 50102 "Puppy Card"
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the puppy name.';
-                    ShowMandatory = true;
                 }
                 field(Breed; Rec.Breed)
                 {
@@ -50,18 +53,14 @@ page 50102 "Puppy Card"
                 Image = Calendar;
                 Promoted = true;
                 PromotedCategory = Process;
-                ToolTip = 'Request a new veterinary appointment for this puppy.';
+                ToolTip = 'Request a veterinary appointment for the selected puppy.';
 
                 trigger OnAction()
                 var
-                    VetAppointmentMgt: Codeunit "Vet Appointment Mgt.";
-                    RequestID: Text;
+                    VetAppointmentMgt: Codeunit "Vet Appointment Mgt._TD";
                 begin
-                    if not Confirm('Do you want to request a vet appointment for %1?', true, Rec.Name) then
-                        exit;
-
-                    RequestID := VetAppointmentMgt.RequestAppointment(Rec."No.");
-                    Message('Appointment request sent. Request ID: %1', RequestID);
+                    VetAppointmentMgt.RequestAppointment(Rec."No.");
+                    Message('Appointment request sent successfully.');
                 end;
             }
         }

@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="en-US" original="BCTechDays2025">
+    <body>
+      <group id="body">
+        <trans-unit id="Table 4016653061 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Puppy</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Puppy_TD - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4016653061 - Field 1576740555 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Birth Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Puppy_TD - Field Birth Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4016653061 - Field 1291396672 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Breed</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Puppy_TD - Field Breed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4016653061 - Field 2961552353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Puppy_TD - Field Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4016653061 - Field 4200184881 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Puppy_TD - Field No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4016653061 - Field 1351594800 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No. Series</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Puppy_TD - Field No. Series - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3103071345 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vet Appointment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Vet Appointment_TD - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3103071345 - Field 2375296600 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>API Request ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Vet Appointment_TD - Field API Request ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3103071345 - Field 3315143786 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Appointment Date/Time</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Vet Appointment_TD - Field Appointment DateTime - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3103071345 - Field 789079782 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Appointment ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Vet Appointment_TD - Field Appointment ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3103071345 - Field 2823505394 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>External Reference</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Vet Appointment_TD - Field External Reference - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3103071345 - Field 401751910 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Error</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Vet Appointment_TD - Field Last Error - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3103071345 - Field 3349671189 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Puppy No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Vet Appointment_TD - Field Puppy No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3103071345 - Field 513339096 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Vet Appointment_TD - Field Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 840618641 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Puppy Card</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Puppy Card_TD - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 840618641 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Puppy Card_TD - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 840618641 - Control 1576740555 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the puppy birth date.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Puppy Card_TD - Control Birth Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 840618641 - Control 1291396672 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the puppy breed.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Puppy Card_TD - Control Breed - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 840618641 - Control 2961552353 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the puppy name.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Puppy Card_TD - Control Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 840618641 - Control 4200184881 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the puppy number.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Puppy Card_TD - Control No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 840618641 - Action 121576451 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Request a new veterinary appointment for this puppy.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Puppy Card_TD - Action RequestVetAppointment - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 840618641 - Action 121576451 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Request Vet Appointment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Puppy Card_TD - Action RequestVetAppointment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3472294691 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Puppies</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Puppy List_TD - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3472294691 - Control 1576740555 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the puppy birth date.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Puppy List_TD - Control Birth Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3472294691 - Control 1291396672 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the puppy breed.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Puppy List_TD - Control Breed - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3472294691 - Control 2961552353 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the puppy name.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Puppy List_TD - Control Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3472294691 - Control 4200184881 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the puppy number.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Puppy List_TD - Control No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3472294691 - Action 121576451 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Request a veterinary appointment for the selected puppy.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Puppy List_TD - Action RequestVetAppointment - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3472294691 - Action 121576451 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Request Vet Appointment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Puppy List_TD - Action RequestVetAppointment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3733484015 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vet Appointments</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Vet Appointment List_TD - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3733484015 - Control 2927833981 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date of the appointment.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Vet Appointment List_TD - Control Appointment Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3733484015 - Control 883711285 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the appointment ID.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Vet Appointment List_TD - Control Entry No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3733484015 - Control 3349671189 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the puppy number for this appointment.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Vet Appointment List_TD - Control Puppy No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3733484015 - Control 513339096 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the status of the appointment.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Vet Appointment List_TD - Control Status - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3733484015 - View 3665605423 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Completed</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Vet Appointment List_TD - View Completed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3733484015 - View 4141588837 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Confirmed</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Vet Appointment List_TD - View Confirmed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3733484015 - View 3741122412 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Requested</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Vet Appointment List_TD - View Requested - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1134709813 - EnumValue 4069904181 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cancelled</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Vet Appointment Status_TD - EnumValue Cancelled - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1134709813 - EnumValue 3665605423 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Completed</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Vet Appointment Status_TD - EnumValue Completed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1134709813 - EnumValue 4141588837 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Confirmed</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Vet Appointment Status_TD - EnumValue Confirmed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1134709813 - EnumValue 3741122412 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Requested</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Vet Appointment Status_TD - EnumValue Requested - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 563601277 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>appointmentEntity</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Appointment Entity_TD - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 563601277 - Control 1763436576 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>API Request ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Appointment Entity_TD - Control apiRequestID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 563601277 - Control 3004480474 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Appointment Date/Time</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Appointment Entity_TD - Control appointmentDateTime - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 563601277 - Control 2005097110 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Appointment ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Appointment Entity_TD - Control appointmentID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 563601277 - Control 1596779890 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>External Reference</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Appointment Entity_TD - Control externalReference - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 563601277 - Control 3035810974 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Error</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Appointment Entity_TD - Control lastError - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 563601277 - Control 793533439 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Puppy No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Appointment Entity_TD - Control puppyNo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 563601277 - Control 998393528 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Appointment Entity_TD - Control status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="EnumExtension 575443437 - EnumValue 3111593745 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 1178123344">
+          <source>Puppy Management</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">EnumExtension EventCategory_TD - EnumValue Puppy Management - Property Caption</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

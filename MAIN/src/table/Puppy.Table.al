@@ -2,12 +2,12 @@ namespace DefaultPublisher.BCTechDays2025;
 
 using Microsoft.Foundation.NoSeries;
 
-table 50101 Puppy
+table 50101 "Puppy_TD"
 {
     DataClassification = CustomerContent;
     Caption = 'Puppy';
-    LookupPageId = "Puppy List";
-    DrillDownPageId = "Puppy List";
+    LookupPageId = "Puppy List_TD";
+    DrillDownPageId = "Puppy List_TD";
 
     fields
     {
