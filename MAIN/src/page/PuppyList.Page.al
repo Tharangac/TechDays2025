@@ -1,12 +1,12 @@
 namespace DefaultPublisher.BCTechDays2025;
 
-page 50101 "Puppy List_TD"
+page 50101 "PuppyList_TD"
 {
     PageType = List;
     ApplicationArea = All;
     UsageCategory = Lists;
     SourceTable = Puppy_TD;
-    CardPageId = "Puppy Card_TD";
+    CardPageId = "PuppyCard_TD";
     Editable = false;
     Caption = 'Puppies';
     InherentPermissions = X;
@@ -57,7 +57,7 @@ page 50101 "Puppy List_TD"
 
                 trigger OnAction()
                 var
-                    VetAppointmentMgt: Codeunit "Vet Appointment Mgt._TD";
+                    VetAppointmentMgt: Codeunit "VetAppointmentMgt._TD";
                 begin
                     VetAppointmentMgt.RequestAppointment(Rec."No.");
                     Message('Appointment request sent successfully.');

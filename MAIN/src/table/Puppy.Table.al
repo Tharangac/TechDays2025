@@ -6,8 +6,8 @@ table 50101 "Puppy_TD"
 {
     DataClassification = CustomerContent;
     Caption = 'Puppy';
-    LookupPageId = "Puppy List_TD";
-    DrillDownPageId = "Puppy List_TD";
+    LookupPageId = "PuppyList_TD";
+    DrillDownPageId = "PuppyList_TD";
 
     fields
     {

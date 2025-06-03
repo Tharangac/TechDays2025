@@ -1,6 +1,6 @@
 namespace DefaultPublisher.BCTechDays2025;
 
-page 50102 "Puppy Card_TD"
+page 50102 "PuppyCard_TD"
 {
     PageType = Card;
     SourceTable = Puppy_TD;
@@ -54,7 +54,7 @@ page 50102 "Puppy Card_TD"
 
                 trigger OnAction()
                 var
-                    VetAppointmentMgt: Codeunit "Vet Appointment Mgt._TD";
+                    VetAppointmentMgt: Codeunit "VetAppointmentMgt._TD";
                     RequestID: Text;
                 begin
                     if not Confirm('Do you want to request a vet appointment for %1?', true, Rec.Name) then

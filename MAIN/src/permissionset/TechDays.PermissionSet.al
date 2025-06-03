@@ -7,13 +7,18 @@ permissionset 50100 "TechDays_TD"
 {
     Assignable = true;
     Permissions = tabledata Puppy_TD = RIMD,
-        tabledata "Vet Appointment_TD" = RIMD,
+        tabledata "VetAppointment_TD" = RIMD,
         table Puppy_TD = X,
-        table "Vet Appointment_TD" = X,
-        codeunit "Vet Appointment Events_TD" = X,
-        codeunit "Vet Appointment Mgt._TD" = X,
-        page "Appointment Entity_TD" = X,
-        page "Puppy Card_TD" = X,
-        page "Puppy List_TD" = X,
-        page "Vet Appointment List_TD" = X;
+        table "VetAppointment_TD" = X,
+        codeunit "VetAppointmentEvents_TD" = X,
+        codeunit "VetAppointmentMgt._TD" = X,
+        page "AppointmentEntity_TD" = X,
+        page "PuppyCard_TD" = X,
+        page "PuppyList_TD" = X,
+        page "VetAppointmentList_TD" = X,
+        tabledata CustomIntegrationSetup_TD = RIMD,
+        table CustomIntegrationSetup_TD = X,
+        codeunit ALAppointmentProvider_TD = X,
+        codeunit ModernAppointmentProvider_TD = X,
+        page CustomIntegrationSetup_TSL_TD = X;
 }

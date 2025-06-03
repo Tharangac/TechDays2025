@@ -1,7 +1,7 @@
 namespace TechDays.TechDays;
 
 using DefaultPublisher.BCTechDays2025;
-page 50104 "Appointment Entity_TD"
+page 50104 "AppointmentEntity_TD"
 {
     PageType = API;
     APIPublisher = 'techDays';
@@ -9,7 +9,7 @@ page 50104 "Appointment Entity_TD"
     APIVersion = 'v1.0';
     EntityName = 'appointment';
     EntitySetName = 'appointments';
-    SourceTable = "Vet Appointment_TD";
+    SourceTable = "VetAppointment_TD";
     ODataKeyFields = "Appointment ID";
     DelayedInsert = true;
     ApplicationArea = All;

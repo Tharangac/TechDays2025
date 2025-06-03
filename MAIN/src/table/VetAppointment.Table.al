@@ -1,6 +1,6 @@
 namespace DefaultPublisher.BCTechDays2025;
 
-table 50102 "Vet Appointment_TD"
+table 50102 "VetAppointment_TD"
 {
     DataClassification = CustomerContent;
     Caption = 'Vet Appointment';
@@ -23,7 +23,7 @@ table 50102 "Vet Appointment_TD"
             Caption = 'Appointment Date/Time';
             DataClassification = CustomerContent;
         }
-        field(5; Status; Enum "Vet Appointment Status_TD")
+        field(5; Status; Enum "VetAppointmentStatus_TD")
         {
             Caption = 'Status';
             DataClassification = CustomerContent;
