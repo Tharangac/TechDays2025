@@ -20,5 +20,5 @@ permissionset 50100 "TechDays_TD"
         table CustomIntegrationSetup_TD = X,
         codeunit ALAppointmentProvider_TD = X,
         codeunit ModernAppointmentProvider_TD = X,
-        page CustomIntegrationSetup_TSL_TD = X;
+        page CustomIntegrationSetup_TD = X;
 }

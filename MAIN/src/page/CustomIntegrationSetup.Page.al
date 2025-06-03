@@ -1,4 +1,4 @@
-page 50100 "CustomIntegrationSetup_TSL_TD"
+page 50100 "CustomIntegrationSetup_TD"
 {
     ApplicationArea = All;
     Caption = 'Custom Integration Setup';

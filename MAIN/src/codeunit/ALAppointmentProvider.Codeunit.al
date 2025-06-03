@@ -6,8 +6,6 @@ codeunit 50102 "ALAppointmentProvider_TD" implements "IAppointmentProvider_TD"
         exit(RequestAppointment(PuppyNo));
     end;
 
-
-
     procedure RequestAppointment(PuppyNo: Code[20]): Text
     var
         VetAppointment: Record "VetAppointment_TD";
