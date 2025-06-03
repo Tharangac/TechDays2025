@@ -33,7 +33,7 @@ page 50104 "AppointmentEntity_TD"
                 {
                     Caption = 'External Reference';
                 }
-                field(appointmentDateTime; Rec."Appointment DateTime")
+                field(appointmen_TDateTime; Rec."Appointment DateTime")
                 {
                     Caption = 'Appointment Date/Time';
                 }

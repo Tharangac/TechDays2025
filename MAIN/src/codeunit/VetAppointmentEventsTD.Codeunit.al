@@ -3,7 +3,7 @@ using System.Integration;
 using TechDays.TechDays;
 
 /// <summary>
-/// Codeunit 50101 VetAppointmentEvents_TD
+/// Codeunit 50101 "VetAppointmentEvents_TD"
 /// Provides external business events related to veterinary appointment management.
 /// These events enable integration with external systems and services.
 /// </summary>

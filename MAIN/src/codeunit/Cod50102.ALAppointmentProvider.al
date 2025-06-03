@@ -62,7 +62,7 @@ codeunit 50102 "ALAppointmentProvider_TD" implements "IAppointmentProvider_TD"
                 if ResponseObject.Get('externalReference', JToken) then
                     VetAppointment."External Reference" := JToken.AsValue().AsText();
 
-                if ResponseObject.Get('appointmentDateTime', JToken) then
+                if ResponseObject.Get('appointmen_TDateTime', JToken) then
                     VetAppointment."Appointment DateTime" := JToken.AsValue().AsDateTime();
 
                 // Insert the appointment record
