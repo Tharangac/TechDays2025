@@ -32,5 +32,6 @@
     "GenerateCaptions"
   ],
   "suppressWarnings": [
+    "AA0215"
   ]
 }
