@@ -55,6 +55,16 @@ table 50102 "VetAppointment_TD"
 
     trigger OnInsert()
     begin
-        Status := Status::Requested;
+        Status := Status::Created;
+    end;
+
+    internal procedure RequestAppointment(Puppy: Record Puppy_TD)
+    begin
+        if not Confirm('Do you want to request a vet appointment for %1?', true, Puppy.Name) then
+            exit;
+        Init();
+        "Appointment ID" := CreateGuid(); // TODO: Replace with munber serries
+        "Puppy No." := Puppy."No.";
+        Insert(true);
     end;
 }

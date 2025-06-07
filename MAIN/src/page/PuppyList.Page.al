@@ -56,11 +56,8 @@ page 50101 "PuppyList_TD"
                 ToolTip = 'Request a veterinary appointment for the selected puppy.';
 
                 trigger OnAction()
-                var
-                    VetAppointmentMgt: Codeunit "VetAppointmentMgt._TD";
                 begin
-                    VetAppointmentMgt.RequestAppointment(Rec."No.");
-                    Message('Appointment request sent successfully.');
+                    Rec.ReqeustVetAppointment();
                 end;
             }
         }

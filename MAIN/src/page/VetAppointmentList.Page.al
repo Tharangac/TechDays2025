@@ -54,11 +54,6 @@ page 50103 "VetAppointmentList_TD"
             Caption = 'Confirmed';
             Filters = where(Status = const(Confirmed));
         }
-        view(Completed)
-        {
-            Caption = 'Completed';
-            Filters = where(Status = const(Completed));
-        }
     }
 
     trigger OnAfterGetRecord()
@@ -77,10 +72,6 @@ page 50103 "VetAppointmentList_TD"
                 StatusStyleTxt := 'Attention';
             Rec.Status::Confirmed:
                 StatusStyleTxt := 'Favorable';
-            Rec.Status::Completed:
-                StatusStyleTxt := 'StrongAccent';
-            Rec.Status::Cancelled:
-                StatusStyleTxt := 'Unfavorable';
         end;
     end;
 }

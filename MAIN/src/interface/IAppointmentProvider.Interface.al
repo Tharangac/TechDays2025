@@ -1,4 +1,4 @@
 interface "IAppointmentProvider_TD"
 {
-    procedure GetAppointment(PuppyNo: Code[20]): Text
+    procedure RequestAppointment(var VetAppointment: Record "VetAppointment_TD")
 }

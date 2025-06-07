@@ -11,7 +11,6 @@ permissionset 50100 "TechDays_TD"
         table Puppy_TD = X,
         table "VetAppointment_TD" = X,
         codeunit "VetAppointmentEvents_TD" = X,
-        codeunit "VetAppointmentMgt._TD" = X,
         page "AppointmentEntity_TD" = X,
         page "PuppyCard_TD" = X,
         page "PuppyList_TD" = X,

@@ -68,4 +68,11 @@ table 50101 "Puppy_TD"
     begin
         TestField("No.", '');
     end;
+
+    internal procedure ReqeustVetAppointment()
+    var
+        VetAppointment: Record VetAppointment_TD;
+    begin
+        VetAppointment.RequestAppointment(Rec);
+    end;
 }

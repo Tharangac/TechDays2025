@@ -41,4 +41,11 @@ table 50103 "Vet Service Setup"
             Insert(true);
         end;
     end;
+
+    internal procedure IsEnabled(): Boolean
+    begin
+        if not Get() then
+            exit;
+        exit("API Endpoint" <> '');
+    end;
 }

@@ -53,15 +53,8 @@ page 50102 "PuppyCard_TD"
                 ToolTip = 'Request a new veterinary appointment for this puppy.';
 
                 trigger OnAction()
-                var
-                    VetAppointmentMgt: Codeunit "VetAppointmentMgt._TD";
-                    RequestID: Text;
                 begin
-                    if not Confirm('Do you want to request a vet appointment for %1?', true, Rec.Name) then
-                        exit;
-
-                    RequestID := VetAppointmentMgt.RequestAppointment(Rec."No.");
-                    Message('Appointment request sent. Request ID: %1', RequestID);
+                    Rec.ReqeustVetAppointment();
                 end;
             }
         }
