@@ -32,7 +32,7 @@ codeunit 50102 "ALAppointmentProvider_TD" implements "IAppointmentProvider_TD"
         VetAppointment.LockTable();
         Puppy.Get(VetAppointment."Puppy No.");
         if not PuppyMgtSetup.IsEnabled() then
-            Error('Vat service is no enabled.');
+            Error('Vet service is no enabled.');
         // prepare content
         RequestObject.Add('petName', Puppy.Name);
         RequestObject.Add('petBreed', Puppy.Breed);
