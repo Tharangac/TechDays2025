@@ -8,9 +8,10 @@ codeunit 50102 "ALAppointmentProvider_TD" implements "IAppointmentProvider_TD"
         JobQueueEntry: Record "Job Queue Entry";
         JobQueueManagement: Codeunit "Job Queue Management";
     begin
-        // TODO: Create a job queue entry
-        //JobQueueManagement.CreateJobQueueEntry();
-        //JobQueueEntry.Init();
+        JobQueueEntry.Init();
+        JobQueueEntry.Validate("Object Type to Run", JobQueueEntry."Object Type to Run"::Codeunit);
+        JobQueueEntry.Validate("Object ID to Run", Codeunit::ALAppointmentProvider_TD);
+        JobQueueManagement.CreateJobQueueEntry(JobQueueEntry);
     end;
 
     trigger OnRun()
@@ -23,15 +24,13 @@ codeunit 50102 "ALAppointmentProvider_TD" implements "IAppointmentProvider_TD"
         RequestMessage: Codeunit "Http Request Message";
         ResponseMessage: Codeunit "Http Response Message";
         Json: Codeunit Json;
-        CurrHttpClientInstance: HttpClient;
         VetAppointmentRecRef: RecordRef;
-        RequestHeaders: HttpHeaders;
+        CurrHttpClientInstance: HttpClient;
         RequestObject: JsonObject;
-        RequestContent: Text;
-        ResponseObject: JsonObject;
     begin
         VetAppointmentRecRef.Get(Rec."Record ID to Process");
         VetAppointmentRecRef.SetTable(VetAppointment);
+        VetAppointment.LockTable();
         Puppy.Get(VetAppointment."Puppy No.");
         if not VatServiceSetup.IsEnabled() then
             Error('Vat service is no enabled.');
@@ -39,16 +38,20 @@ codeunit 50102 "ALAppointmentProvider_TD" implements "IAppointmentProvider_TD"
         RequestObject.Add('petName', Puppy.Name);
         RequestObject.Add('petBreed', Puppy.Breed);
         // prepare request
-        RequestMessage.SetHttpMethod('POST');
-        RequestMessage.SetRequestUri(VatServiceSetup."API Endpoint");
-        RequestMessage.SetContent(Content.Create(RequestObject));
+        RequestMessage.Create(
+            "Http Method"::POST,
+            VatServiceSetup."API Endpoint",
+            Content.Create(RequestObject)
+        );
         // send a request
         if not Client.Send(CurrHttpClientInstance, RequestMessage, ResponseMessage) then
             Error('Failed to send request to Vet Service');
         // handle response
         if not ResponseMessage.GetIsSuccessStatusCode() then
-            Error(StrSubstNo('Vet service request failed with status code %1', ResponseMessage.GetHttpStatusCode()));
-        Json.InitializeObject(ResponseMessage.GetContent().AsText());
+            Error('Vet service request failed with status code %1', ResponseMessage.GetHttpStatusCode());
+
+        //Json.InitializeObject(ResponseMessage.GetContent().AsText());
+        //Json.GetValueAndSetToRecFieldNo(VetAppointmentRecRef, '*.appointmentDaeTime', VetAppointment.FieldNo("Appointment DateTime"));
         // TODO: add response handling
     end;
 }
