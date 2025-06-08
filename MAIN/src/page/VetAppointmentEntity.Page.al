@@ -1,19 +1,19 @@
 namespace TechDays.TechDays;
 
 using DefaultPublisher.BCTechDays2025;
-page 50104 "AppointmentEntity_TD"
+page 50104 "VetAppointmentEntity_TD"
 {
     PageType = API;
     APIPublisher = 'techDays';
     APIGroup = 'puppymgt';
     APIVersion = 'v1.0';
-    EntityName = 'appointment';
-    EntitySetName = 'appointments';
+    EntityName = 'vetAppointment';
+    EntitySetName = 'vetAppointments';
     SourceTable = "VetAppointment_TD";
-    ODataKeyFields = "Appointment ID";
+    ODataKeyFields = SystemId;
     DelayedInsert = true;
     ApplicationArea = All;
-    Caption = 'appointmentEntity';
+    Caption = 'vetAppointmentEntity';
 
     layout
     {
@@ -21,9 +21,14 @@ page 50104 "AppointmentEntity_TD"
         {
             repeater(General)
             {
-                field(appointmentID; Rec."Appointment ID")
+                field(systemId; Rec.SystemId)
                 {
-                    Caption = 'Appointment ID';
+                    Caption = 'System ID';
+                    Editable = false;
+                }
+                field(appointmentNo; Rec."No.")
+                {
+                    Caption = 'No.';
                 }
                 field(puppyNo; Rec."Puppy No.")
                 {
@@ -33,7 +38,7 @@ page 50104 "AppointmentEntity_TD"
                 {
                     Caption = 'External Reference';
                 }
-                field(appointmen_TDateTime; Rec."Appointment DateTime")
+                field(appointmenDateTime; Rec."Appointment DateTime")
                 {
                     Caption = 'Appointment Date/Time';
                 }

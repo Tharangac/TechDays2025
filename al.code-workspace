@@ -1,7 +1,7 @@
 {
     "settings": {
         "CRS.ObjectNameSuffix": "_TD",
-        "CRS.OnSaveAlFileAction": "Reorganize",
+        "CRS.OnSaveAlFileAction": "Rename",
         "CRS.DisableDefaultAlSnippets": true,
         "CRS.RenameWithGit": true,
         "CRS.FileNamePattern": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
@@ -9,8 +9,7 @@
         "CRS.FileNamePatternPageCustomizations": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
         "CRS.RemoveSuffixFromFilename": true,
         "CRS.RemoveUnderscoreFromFilename": true,
-        "al.packageCachePath": "../.alpackages",
-        "al.defaultLaunchConfigurationName": "Local Container",
+        "al.packageCachePath": "./.alpackages",
         "al.enableCodeAnalysis": true,
         "al.codeAnalyzers": [
             "${CodeCop}",

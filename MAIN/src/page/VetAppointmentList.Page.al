@@ -17,7 +17,7 @@ page 50103 "VetAppointmentList_TD"
         {
             repeater(GroupName)
             {
-                field("Entry No."; Rec."Appointment ID")
+                field("No."; Rec."No.")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the appointment ID.';

@@ -1,4 +1,5 @@
 namespace DefaultPublisher.BCTechDays2025;
+using Microsoft.Foundation.NoSeries;
 
 table 50102 "VetAppointment_TD"
 {
@@ -7,47 +8,47 @@ table 50102 "VetAppointment_TD"
 
     fields
     {
-        field(1; "Appointment ID"; Guid)
+        field(1; "No."; Code[20])
         {
-            Caption = 'Appointment ID';
-            DataClassification = CustomerContent;
+            Caption = 'No.';
         }
         field(2; "Puppy No."; Code[20])
         {
             Caption = 'Puppy No.';
             TableRelation = Puppy_TD;
-            DataClassification = CustomerContent;
         }
         field(3; "Appointment DateTime"; DateTime)
         {
             Caption = 'Appointment Date/Time';
-            DataClassification = CustomerContent;
         }
         field(5; Status; Enum "VetAppointmentStatus_TD")
         {
             Caption = 'Status';
-            DataClassification = CustomerContent;
         }
         field(7; "External Reference"; Text[100])
         {
             Caption = 'External Reference';
-            DataClassification = CustomerContent;
         }
         field(8; "API Request ID"; Text[50])
         {
             Caption = 'API Request ID';
-            DataClassification = CustomerContent;
         }
         field(9; "Last Error"; Text[250])
         {
             Caption = 'Last Error';
-            DataClassification = CustomerContent;
         }
+        field(10; "No. Series"; Code[20])
+        {
+            Caption = 'No. Series';
+            Editable = false;
+            TableRelation = "No. Series";
+        }
+
     }
 
     keys
     {
-        key(Key1; "Appointment ID")
+        key(Key1; "No.")
         {
             Clustered = true;
         }
@@ -55,6 +56,40 @@ table 50102 "VetAppointment_TD"
 
     trigger OnInsert()
     begin
+        if "No." = '' then begin
+            GetSetup();
+
+            "No. Series" := PuppyMgtSetup."Appointment No. Series";
+            "No." := NoSeries.GetNextNo("No. Series");
+        end;
+
         Status := Status::Requested;
     end;
+
+    procedure CreateNewAppointment(PuppyNo: Code[20]): Guid
+    begin
+        exit(InsertVetAppointment(PuppyNo));
+    end;
+
+    local procedure InsertVetAppointment(PuppyNo: Code[20]): Guid
+    var
+        VetAppointment: Record "VetAppointment_TD";
+    begin
+        VetAppointment.Init();
+        VetAppointment.Validate("Puppy No.", PuppyNo);
+        VetAppointment.Validate(Status, VetAppointment.Status::Requested);
+        VetAppointment.Insert(true);
+        exit(VetAppointment.SystemId);
+    end;
+
+    local procedure GetSetup()
+    begin
+        PuppyMgtSetup.Get();
+        PuppyMgtSetup.TestField("Appointment No. Series");
+    end;
+
+
+    var
+        PuppyMgtSetup: Record "PuppyMgtSetup_TD";
+        NoSeries: Codeunit "No. Series";
 }

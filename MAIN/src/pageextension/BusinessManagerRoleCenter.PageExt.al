@@ -17,7 +17,7 @@ pageextension 50100 "BusinessManagerRoleCenter_TD" extends "Business Manager Rol
                 {
                     ApplicationArea = All;
                     Caption = 'Custom Integration Setup';
-                    RunObject = page "CustomIntegrationSetup_TD";
+                    RunObject = page "PuppyMgtSetup_TD";
                 }
 
                 action(PuppyList_TD)

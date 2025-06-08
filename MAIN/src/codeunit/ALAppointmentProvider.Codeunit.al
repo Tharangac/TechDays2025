@@ -1,32 +1,28 @@
 codeunit 50102 "ALAppointmentProvider_TD" implements "IAppointmentProvider_TD"
 {
 
-    procedure GetAppointment(PuppyNo: Code[20]): Text
+    procedure GetAppointment(PuppyNo: Code[20]): Guid
     begin
         exit(RequestAppointment(PuppyNo));
     end;
 
-    procedure RequestAppointment(PuppyNo: Code[20]): Text
+    procedure RequestAppointment(PuppyNo: Code[20]): Guid
     var
         VetAppointment: Record "VetAppointment_TD";
         // TempBlob: Codeunit "Temp Blob";
-        RequestContent: InStream;
-        ResponseContent: InStream;
-        Client: HttpClient;
-        RequestMessage: HttpRequestMessage;
-        ResponseMessage: HttpResponseMessage;
-        RequestObject: JsonObject;
-        ResponseObject: JsonObject;
-        JToken: JsonToken;
-        RequestID: Text;
-        VetAppointmentEvent: Codeunit "VetAppointmentEvents_TD";
-        newGuid: Guid;
+        // RequestContent: InStream;
+        // ResponseContent: InStream;
+        // Client: HttpClient;
+        // RequestMessage: HttpRequestMessage;
+        // ResponseMessage: HttpResponseMessage;
+        // RequestObject: JsonObject;
+        // ResponseObject: JsonObject;
+        // JToken: JsonToken;
+        // RequestID: Text;
+        // VetAppointmentEvent: Codeunit "VetAppointmentEvents_TD";
+        AppointmentSystemID: Guid;
     begin
-        VetAppointment.Init();
-        VetAppointment."Appointment ID" := CreateGuid();
-        VetAppointment."Puppy No." := PuppyNo;
-        VetAppointment.Status := VetAppointment.Status::Requested;
-        VetAppointment.Insert();
+        AppointmentSystemID := VetAppointment.CreateNewAppointment(PuppyNo);
 
         // Initialize appointment record
 

@@ -1,6 +1,7 @@
 namespace DefaultPublisher.BCTechDays2025;
 
 using Microsoft.Foundation.NoSeries;
+using Microsoft.Sales.Customer;
 
 table 50101 "Puppy_TD"
 {
@@ -14,34 +15,64 @@ table 50101 "Puppy_TD"
         field(1; "No."; Code[20])
         {
             Caption = 'No.';
-            DataClassification = CustomerContent;
         }
         field(2; Name; Text[100])
         {
             Caption = 'Name';
-            DataClassification = CustomerContent;
             trigger OnValidate()
             begin
                 if (Rec.Name <> xRec.Name) and (Rec.Name <> '') then
                     TestField("No.");
             end;
         }
-        field(3; Breed; Text[50])
+        field(3; Breed; Code[20])
         {
             Caption = 'Breed';
-            DataClassification = CustomerContent;
+            TableRelation = "Breed_TD".Code;
         }
         field(4; "Birth Date"; Date)
         {
             Caption = 'Birth Date';
-            DataClassification = CustomerContent;
         }
         field(5; "No. Series"; Code[20])
         {
             Caption = 'No. Series';
             Editable = false;
             TableRelation = "No. Series";
-            DataClassification = CustomerContent;
+        }
+        field(6; Image; Media)
+        {
+            Caption = 'Image';
+            ExtendedDatatype = Person;
+            ToolTip = 'Specifies the picture of the puppy.';
+        }
+        field(7; "Requested Appointment"; Integer)
+        {
+            CalcFormula = count(VetAppointment_TD where("Puppy No." = field("No."), "Status" = const("Requested")));
+            Caption = 'No. of Requested Appointment';
+            Editable = false;
+            FieldClass = FlowField;
+        }
+        field(8; "Confirmed Appointment"; Integer)
+        {
+            CalcFormula = count(VetAppointment_TD where("Puppy No." = field("No."), "Status" = const("Confirmed")));
+            Caption = 'No. of Confirmed Appointment';
+            Editable = false;
+            FieldClass = FlowField;
+        }
+        field(9; "Completed Appointment"; Integer)
+        {
+            CalcFormula = count(VetAppointment_TD where("Puppy No." = field("No."), "Status" = const("Completed")));
+            Caption = 'No. of Completed Appointment';
+            Editable = false;
+            FieldClass = FlowField;
+        }
+        field(10; "Cancelled Appointment"; Integer)
+        {
+            CalcFormula = count(VetAppointment_TD where("Puppy No." = field("No."), "Status" = const("Cancelled")));
+            Caption = 'No. of Cancelled Appointment';
+            Editable = false;
+            FieldClass = FlowField;
         }
     }
 
@@ -53,19 +84,18 @@ table 50101 "Puppy_TD"
         }
     }
 
-    var
-        NoSeriesMgt: Codeunit "No. Series";
-
     trigger OnInsert()
     begin
         if "No." = '' then begin
-            TestNoSeries();
-            "No." := NoSeriesMgt.GetNextNo("No. Series");
+            PuppyMgtSetup.Get();
+            PuppyMgtSetup.TestField("Puppy No. Series");
+
+            "No. Series" := PuppyMgtSetup."Puppy No. Series";
+            "No." := NoSeries.GetNextNo("No. Series");
         end;
     end;
 
-    local procedure TestNoSeries()
-    begin
-        TestField("No.", '');
-    end;
+    var
+        PuppyMgtSetup: Record "PuppyMgtSetup_TD";
+        NoSeries: Codeunit "No. Series";
 }

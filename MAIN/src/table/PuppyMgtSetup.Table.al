@@ -1,6 +1,6 @@
-table 50100 "CustomIntegrationSetup_TD"
+table 50100 "PuppyMgtSetup_TD"
 {
-    Caption = 'Custom Integration Setup';
+    Caption = 'Puppy Management Setup';
     DataClassification = SystemMetadata;
 
     fields
@@ -8,12 +8,23 @@ table 50100 "CustomIntegrationSetup_TD"
         field(1; "Primary Key"; Code[10])
         {
             Caption = 'Primary Key';
-            DataClassification = CustomerContent;
         }
-        field(2; "Integration Type"; Enum "IntegrationType_TD")
+
+        field(2; "Puppy No. Series"; Code[20])
+        {
+            Caption = 'Puppy No. Series';
+            TableRelation = "No. Series";
+        }
+
+        field(3; "Appointment No. Series"; Code[20])
+        {
+            Caption = 'Appointment No. Series';
+            TableRelation = "No. Series";
+        }
+
+        field(4; "Integration Type"; Enum "IntegrationType_TD")
         {
             Caption = 'Integration Type';
-            DataClassification = CustomerContent;
         }
     }
     keys
