@@ -6,10 +6,7 @@ page 50103 "VetAppointmentList_TD"
     ApplicationArea = All;
     UsageCategory = Lists;
     SourceTable = "VetAppointment_TD";
-    Editable = false;
     Caption = 'Vet Appointments';
-    InherentPermissions = X;
-    InherentEntitlements = X;
 
     layout
     {

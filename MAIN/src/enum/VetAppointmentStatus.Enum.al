@@ -10,11 +10,11 @@ enum 50100 "VetAppointmentStatus_TD"
     }
     value(1; Requested)
     {
-        Caption = 'Confirmed';
+        Caption = 'Requested';
     }
     value(2; Confirmed)
     {
-        Caption = 'Completed';
+        Caption = 'Confirmed';
     }
     value(3; Cancelled)
     {
