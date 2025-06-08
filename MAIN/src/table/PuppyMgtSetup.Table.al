@@ -26,6 +26,18 @@ table 50100 "PuppyMgtSetup_TD"
         {
             Caption = 'Integration Type';
         }
+
+        field(5; "API Endpoint"; Text[250])
+        {
+            Caption = 'API Endpoint';
+            DataClassification = CustomerContent;
+        }
+        field(6; "API Key"; Text[250])
+        {
+            Caption = 'API Key';
+            DataClassification = CustomerContent;
+            ExtendedDatatype = Masked;
+        }
     }
     keys
     {
@@ -42,5 +54,12 @@ table 50100 "PuppyMgtSetup_TD"
             Init();
             Insert(true);
         end;
+    end;
+
+    internal procedure IsEnabled(): Boolean
+    begin
+        if not Get() then
+            exit;
+        exit("API Endpoint" <> '');
     end;
 }

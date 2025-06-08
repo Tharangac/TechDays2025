@@ -30,19 +30,19 @@ page 50109 "VetAppointmentHisFactBox_TD"
                 Caption = 'General';
                 ShowCaption = false;
                 Visible = false;
+                field("Created Appointment"; Rec."Created Appointment")
+                {
+                    ToolTip = 'No. of Created Appointment';
+                    DrillDownPageId = VetAppointmentList_TD;
+                }
                 field("Requested Appointment"; Rec."Requested Appointment")
                 {
                     ToolTip = 'No. of Requested Appointment';
-                    DrillDownPageId = VetAppointmentList_TD;
+                    DrillDownPageId = "VetAppointmentList_TD";
                 }
                 field("Confirmed Appointment"; Rec."Confirmed Appointment")
                 {
                     ToolTip = 'No. of Confirmed Appointment';
-                    DrillDownPageId = "VetAppointmentList_TD";
-                }
-                field("Completed Appointment"; Rec."Completed Appointment")
-                {
-                    ToolTip = 'No. of Completed Appointment';
                     DrillDownPageId = "VetAppointmentList_TD";
                 }
                 field("Cancelled Appointment"; Rec."Cancelled Appointment")
@@ -54,19 +54,19 @@ page 50109 "VetAppointmentHisFactBox_TD"
             cuegroup(Control2)
             {
                 ShowCaption = false;
-                field(NoofRequestedAppointment; Rec."Requested Appointment")
+                field(NoofCreatedAppointment; Rec."Created Appointment")
+                {
+                    ToolTip = 'No. of Created Appointment';
+                    DrillDownPageId = VetAppointmentList_TD;
+                }
+                field(oofRequestedAppointment; Rec."Requested Appointment")
                 {
                     ToolTip = 'No. of Requested Appointment';
-                    DrillDownPageId = VetAppointmentList_TD;
+                    DrillDownPageId = "VetAppointmentList_TD";
                 }
                 field(oofConfirmedAppointment; Rec."Confirmed Appointment")
                 {
                     ToolTip = 'No. of Confirmed Appointment';
-                    DrillDownPageId = "VetAppointmentList_TD";
-                }
-                field(oofCompletedAppointment; Rec."Completed Appointment")
-                {
-                    ToolTip = 'No. of Completed Appointment';
                     DrillDownPageId = "VetAppointmentList_TD";
                 }
                 field(oofCancelledAppointment; Rec."Cancelled Appointment")

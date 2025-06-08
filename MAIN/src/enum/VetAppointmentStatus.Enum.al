@@ -4,15 +4,15 @@ enum 50100 "VetAppointmentStatus_TD"
 {
     Extensible = true;
 
-    value(0; Requested)
+    value(0; Created)
     {
-        Caption = 'Requested';
+        Caption = 'Created';
     }
-    value(1; Confirmed)
+    value(1; Requested)
     {
         Caption = 'Confirmed';
     }
-    value(2; Completed)
+    value(2; Confirmed)
     {
         Caption = 'Completed';
     }

@@ -47,17 +47,17 @@ page 50103 "VetAppointmentList_TD"
         view(Requested)
         {
             Caption = 'Requested';
-            Filters = where(Status = const(Requested));
+            Filters = where(Status = const(Created));
         }
         view(Confirmed)
         {
             Caption = 'Confirmed';
-            Filters = where(Status = const(Confirmed));
+            Filters = where(Status = const(Requested));
         }
         view(Completed)
         {
             Caption = 'Completed';
-            Filters = where(Status = const(Completed));
+            Filters = where(Status = const(Confirmed));
         }
     }
 
@@ -73,11 +73,11 @@ page 50103 "VetAppointmentList_TD"
     begin
         StatusStyleTxt := 'Standard';
         case Rec.Status of
-            Rec.Status::Requested:
+            Rec.Status::Created:
                 StatusStyleTxt := 'Attention';
-            Rec.Status::Confirmed:
+            Rec.Status::Requested:
                 StatusStyleTxt := 'Favorable';
-            Rec.Status::Completed:
+            Rec.Status::Confirmed:
                 StatusStyleTxt := 'StrongAccent';
             Rec.Status::Cancelled:
                 StatusStyleTxt := 'Unfavorable';

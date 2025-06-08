@@ -46,24 +46,24 @@ table 50101 "Puppy_TD"
             ExtendedDatatype = Person;
             ToolTip = 'Specifies the picture of the puppy.';
         }
-        field(7; "Requested Appointment"; Integer)
+        field(7; "Created Appointment"; Integer)
+        {
+            CalcFormula = count(VetAppointment_TD where("Puppy No." = field("No."), "Status" = const("Created")));
+            Caption = 'No. of Created Appointment';
+            Editable = false;
+            FieldClass = FlowField;
+        }
+        field(8; "Requested Appointment"; Integer)
         {
             CalcFormula = count(VetAppointment_TD where("Puppy No." = field("No."), "Status" = const("Requested")));
             Caption = 'No. of Requested Appointment';
             Editable = false;
             FieldClass = FlowField;
         }
-        field(8; "Confirmed Appointment"; Integer)
+        field(9; "Confirmed Appointment"; Integer)
         {
             CalcFormula = count(VetAppointment_TD where("Puppy No." = field("No."), "Status" = const("Confirmed")));
             Caption = 'No. of Confirmed Appointment';
-            Editable = false;
-            FieldClass = FlowField;
-        }
-        field(9; "Completed Appointment"; Integer)
-        {
-            CalcFormula = count(VetAppointment_TD where("Puppy No." = field("No."), "Status" = const("Completed")));
-            Caption = 'No. of Completed Appointment';
             Editable = false;
             FieldClass = FlowField;
         }
@@ -93,6 +93,13 @@ table 50101 "Puppy_TD"
             "No. Series" := PuppyMgtSetup."Puppy No. Series";
             "No." := NoSeries.GetNextNo("No. Series");
         end;
+    end;
+
+    internal procedure ReqeustVetAppointment()
+    var
+        VetAppointment: Record VetAppointment_TD;
+    begin
+        VetAppointment.RequestAppointment(Rec);
     end;
 
     var

@@ -66,20 +66,19 @@ table 50102 "VetAppointment_TD"
         Status := Status::Requested;
     end;
 
-    procedure CreateNewAppointment(PuppyNo: Code[20]): Guid
+    procedure RequestAppointment(Puppy: Record Puppy_TD)
     begin
-        exit(InsertVetAppointment(PuppyNo));
+        InsertVetAppointment(Puppy);
     end;
 
-    local procedure InsertVetAppointment(PuppyNo: Code[20]): Guid
+    local procedure InsertVetAppointment(Puppy: Record Puppy_TD): Guid
     var
         VetAppointment: Record "VetAppointment_TD";
     begin
         VetAppointment.Init();
-        VetAppointment.Validate("Puppy No.", PuppyNo);
+        VetAppointment.Validate("Puppy No.", Puppy."No.");
         VetAppointment.Validate(Status, VetAppointment.Status::Requested);
         VetAppointment.Insert(true);
-        exit(VetAppointment.SystemId);
     end;
 
     local procedure GetSetup()

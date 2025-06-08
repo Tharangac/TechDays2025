@@ -72,14 +72,13 @@ page 50102 "PuppyCard_TD"
 
                 trigger OnAction()
                 var
-                    VetAppointmentMgt: Codeunit "VetAppointmentMgt._TD";
                     VetAppointmentRequestMessageLbl: Label 'Do you want to request a vet appointment for %1?', Comment = '%1 is the puppy name';
                     RequestSentNotificationLbl: Label 'Appointment request sent.';
                 begin
                     if not Confirm(VetAppointmentRequestMessageLbl, true, Rec.Name) then
                         exit;
 
-                    VetAppointmentMgt.RequestAppointment(Rec."No.");
+                    Rec.ReqeustVetAppointment();
                     Message(RequestSentNotificationLbl);
                 end;
             }
