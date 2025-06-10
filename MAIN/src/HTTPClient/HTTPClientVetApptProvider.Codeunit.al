@@ -28,7 +28,7 @@ codeunit 50102 "HTTPClientVetApptProvider_TD" implements "IVetAppointmentProvide
         RequestMessage: Codeunit "Http Request Message";
         ResponseMessage: Codeunit "Http Response Message";
         CurrHttpClientInstance: HttpClient;
-        ResponseJsonToken: JsonToken;
+        Response: JsonToken;
     begin
         if not PuppyMgtSetup.IsEnabled() then
             Error('Vet service is no enabled.');
@@ -45,10 +45,10 @@ codeunit 50102 "HTTPClientVetApptProvider_TD" implements "IVetAppointmentProvide
             Error('Failed to send request to Vet Service');
         if not ResponseMessage.GetIsSuccessStatusCode() then
             Error('Vet service request failed with status code %1', ResponseMessage.GetHttpStatusCode());
-        ResponseJsonToken := ResponseMessage.GetContent().AsJson();
+        Response := ResponseMessage.GetContent().AsJson();
         // handle response
-        VetAppointment."External Reference" := CopyStr(ResponseJsonToken.AsObject().GetText('appointmentId'), 1, 100);
-        VetAppointment."Appointment DateTime" := ResponseJsonToken.AsObject().GetDateTime('appointmentDatetime');
+        VetAppointment."External Reference" := CopyStr(Response.AsObject().GetText('appointmentId'), 1, 100);
+        VetAppointment."Appointment DateTime" := Response.AsObject().GetDateTime('appointmentDatetime');
         VetAppointment.Status := VetAppointment.Status::Confirmed;
         VetAppointment.Modify(true);
     end;

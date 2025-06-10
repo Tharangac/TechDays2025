@@ -24,17 +24,17 @@ codeunit 50103 "RESTClientVetApptProvider_TD" implements "IVetAppointmentProvide
         VetAppointment: Record "VetAppointment_TD";
         PuppyMgtSetup: Record PuppyMgtSetup_TD;
         RestClient: Codeunit "Rest Client";
-        ResponseJsonToken: JsonToken;
+        Response: JsonToken;
     begin
         if not PuppyMgtSetup.IsEnabled() then
             Error('Vet service is no enabled.');
         VetAppointment.Get(Rec."Record ID to Process");
         VetAppointment.LockTable();
         // prepare and send response
-        ResponseJsonToken := RestClient.PostAsJson(PuppyMgtSetup."API Endpoint", GetPayload(VetAppointment));
+        Response := RestClient.PostAsJson(PuppyMgtSetup."API Endpoint", GetPayload(VetAppointment));
         // handle response
-        VetAppointment."External Reference" := CopyStr(ResponseJsonToken.AsObject().GetText('appointmentId'), 1, 100);
-        VetAppointment."Appointment DateTime" := ResponseJsonToken.AsObject().GetDateTime('appointmentDatetime');
+        VetAppointment."External Reference" := CopyStr(Response.AsObject().GetText('appointmentId'), 1, 100);
+        VetAppointment."Appointment DateTime" := Response.AsObject().GetDateTime('appointmentDatetime');
         VetAppointment.Status := VetAppointment.Status::Confirmed;
         VetAppointment.Modify(true);
     end;
