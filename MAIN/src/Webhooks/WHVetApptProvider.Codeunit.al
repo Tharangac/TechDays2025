@@ -2,7 +2,7 @@ namespace BCTechDays.PuppyMgt.Webhooks;
 
 using BCTechDays.PuppyMgt.VetAppointment;
 
-codeunit 50103 "WHVetApptProvider_TD" implements "IVetAppointmentProvider_TD"
+codeunit 50110 "WHVetApptProvider_TD" implements "IVetAppointmentProvider_TD"
 {
     Access = Internal;
     InherentEntitlements = X;

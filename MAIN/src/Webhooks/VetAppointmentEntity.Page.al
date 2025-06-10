@@ -1,6 +1,6 @@
 namespace BCTechDays.PuppyMgt.VetAppointment;
 
-page 50104 "VetAppointmentEntity_TD"
+page 50110 "VetAppointmentEntity_TD"
 {
     PageType = API;
     APIPublisher = 'bcTechDays';

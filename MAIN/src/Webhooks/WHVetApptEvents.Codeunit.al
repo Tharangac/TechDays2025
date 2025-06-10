@@ -3,7 +3,7 @@ namespace BCTechDays.PuppyMgt.Webhooks;
 using System.Integration;
 using BCTechDays.PuppyMgt.VetAppointment;
 
-codeunit 50101 "WHVetApptEvents_TD"
+codeunit 50111 "WHVetApptEvents_TD"
 {
     Access = Internal;
     InherentEntitlements = X;
