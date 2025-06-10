@@ -9,7 +9,7 @@
         "CRS.FileNamePatternPageCustomizations": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
         "CRS.RemoveSuffixFromFilename": true,
         "CRS.RemoveUnderscoreFromFilename": true,
-        "al.packageCachePath": "./.alpackages",
+        "al.packageCachePath": "../.alpackages",
         "al.enableCodeAnalysis": true,
         "al.codeAnalyzers": [
             "${CodeCop}",

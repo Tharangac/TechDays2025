@@ -282,3 +282,4 @@ __pycache__/
 # Cloudflare Workers
 */dist/worker.js
 */worker/script.js
+.DS_Store
