@@ -47,7 +47,18 @@ table 50102 "VetAppointment_TD"
             Editable = false;
             TableRelation = "No. Series";
         }
-
+        field(20; Name; Text[100])
+        {
+            Caption = 'Name';
+            FieldClass = FlowField;
+            CalcFormula = lookup(Puppy_TD.Name where("No." = field("Puppy No.")));
+        }
+        field(21; Breed; Code[20])
+        {
+            Caption = 'Breed';
+            FieldClass = FlowField;
+            CalcFormula = lookup(Puppy_TD.Breed where("No." = field("Puppy No.")));
+        }
     }
 
     keys

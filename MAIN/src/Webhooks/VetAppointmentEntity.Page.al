@@ -35,6 +35,14 @@ page 50110 "VetAppointmentEntity_TD"
                 {
                     Caption = 'Puppy No.';
                 }
+                field(puppyName; Rec.Name)
+                {
+                    Caption = 'Puppy Name';
+                }
+                field(puppyBreed; Rec.Breed)
+                {
+                    Caption = 'Puppy Breed';
+                }
                 field(externalReference; Rec."External Reference")
                 {
                     Caption = 'External Reference';
