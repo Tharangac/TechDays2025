@@ -3,6 +3,7 @@ namespace BCTechDays.PuppyMgt.VetAppointment;
 using System.Utilities;
 using System.Environment;
 using BCTechDays.PuppyMgt.Common;
+using BCTechDays.PuppyMgt.HTTPClient;
 
 page 50112 "VetAppointmentServiceSetup_TD"
 {
@@ -59,18 +60,27 @@ page 50112 "VetAppointmentServiceSetup_TD"
             group(Step2)
             {
                 ShowCaption = false;
-                InstructionalText = 'Enter a Vet Appointment service endpoint and authentication information.';
+                InstructionalText = 'Select type of integration with your VET service provider and then specify connection information.';
                 Visible = Step = Step::EndpointSetup;
 
-                field("API Endpoint"; Rec."API Endpoint")
+                field("Integration Type"; Rec."Integration Type")
                 {
-                    ToolTip = 'API Endpoint';
-                    ExtendedDatatype = URL;
+                    ToolTip = 'Integration Type';
                     ShowMandatory = true;
                 }
+                group(HTTPClientConnectionInfo)
+                {
+                    ShowCaption = false;
+                    Visible = Rec."Integration Type" = Rec."Integration Type"::HTTPClient;
+
+                    field("API Endpoint"; Rec."API Endpoint")
+                    {
+                        ToolTip = 'API Endpoint';
+                        ExtendedDatatype = URL;
+                        ShowMandatory = true;
+                    }
+                }
             }
-
-
             group(Step3)
             {
                 ShowCaption = false;
