@@ -13,8 +13,10 @@ codeunit 50102 "HTTPClientVetApptProvider_TD" implements "IVetAppointmentProvide
     InherentPermissions = X;
 
     procedure RequestAppointment(var VetAppointment: Record "VetAppointment_TD")
+    var
+        JobQueueEntry: Record "Job Queue Entry";
     begin
-        CreateJobQueueEntry(Codeunit::HTTPClientVetApptProvider_TD)
+        JobQueueEntry.ScheduleJobQueueEntry(Codeunit::HTTPClientVetApptProvider_TD, VetAppointment.RecordId())
     end;
 
     trigger OnRun()
@@ -53,17 +55,7 @@ codeunit 50102 "HTTPClientVetApptProvider_TD" implements "IVetAppointmentProvide
         ResponseJsonObject := ResponseMessage.GetContent().AsJson().AsObject();
         VetAppointment."External Reference" := CopyStr(ResponseJsonObject.GetText('appointmentId'), 1, 100);
         VetAppointment."Appointment DateTime" := ResponseJsonObject.GetDateTime('appointmentDatetime');
+        VetAppointment.Status := VetAppointment.Status::Confirmed;
         VetAppointment.Modify(true);
-    end;
-
-    internal procedure CreateJobQueueEntry(ObjectIDToRun: Integer)
-    var
-        JobQueueEntry: Record "Job Queue Entry";
-        JobQueueManagement: Codeunit "Job Queue Management";
-    begin
-        JobQueueEntry.Init();
-        JobQueueEntry.Validate("Object Type to Run", JobQueueEntry."Object Type to Run"::Codeunit);
-        JobQueueEntry.Validate("Object ID to Run", ObjectIDToRun);
-        JobQueueManagement.CreateJobQueueEntry(JobQueueEntry);
     end;
 }

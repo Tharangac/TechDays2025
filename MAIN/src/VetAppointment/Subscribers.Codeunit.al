@@ -39,7 +39,6 @@ codeunit 50104 "Subscribers_TD"
     var
         PuppyMgtSetup: Record PuppyMgtSetup_TD;
         UrlBuilder: Codeunit "Uri Builder";
-        DummyRecordID: RecordID;
         ServiceNameTxt: Label 'Vet Appointment Service';
     begin
         PuppyMgtSetup.InsertIfNotExists();
@@ -47,7 +46,7 @@ codeunit 50104 "Subscribers_TD"
             UrlBuilder.Init(PuppyMgtSetup."API Endpoint");
         ServiceConnection.InsertServiceConnection(
             ServiceConnection,
-            DummyRecordID,
+            PuppyMgtSetup.RecordId(),
             ServiceNameTxt,
             (PuppyMgtSetup."API Endpoint" <> '') ? UrlBuilder.GetHost() : '',
             Page::VetAppointmentServiceSetup_TD);
