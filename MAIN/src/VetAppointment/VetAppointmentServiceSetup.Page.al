@@ -1,15 +1,16 @@
-/*
-namespace BCTechDays.PuppyMgt.HTTPClients;
+namespace BCTechDays.PuppyMgt.VetAppointment;
 
 using System.Utilities;
 using System.Environment;
+using BCTechDays.PuppyMgt.Common;
 
-page 50112 "PuppyMgtServiceSetup_TD"
+page 50112 "VetAppointmentServiceSetup_TD"
 {
-    Caption = 'Puppy Mgt. Service Setup';
+    Caption = 'Vet Appointment Service Setup';
     PageType = NavigatePage;
-    SourceTable = "PuppyMgtSetup_TD";
+    SourceTable = PuppyMgtSetup_TD;
     SourceTableTemporary = true;
+    ApplicationArea = All;
 
     layout
     {
@@ -40,27 +41,17 @@ page 50112 "PuppyMgtServiceSetup_TD"
                 }
             }
 
-            group(Step1)
+            group(Intro)
             {
                 ShowCaption = false;
                 Visible = Step = Step::Start;
-                group("Welcome to PageName")
+                group(Welcome)
                 {
-                    Caption = 'Welcome to PageName Setup';
-
+                    Caption = 'Welcome to Vet Appointment Service Setup';
                     group(Group18)
                     {
                         ShowCaption = false;
-                        InstructionalText = 'Step1 - Replace this text with some instructions.';
-                    }
-                }
-                group("Let's go!")
-                {
-                    Caption = 'Let''s go!';
-                    group(Group22)
-                    {
-                        ShowCaption = false;
-                        InstructionalText = 'Step1 - Replace this text with some more instructions.';
+                        InstructionalText = 'You can set up a Vet Appointment service connection to enable seamless integration.';
                     }
                 }
             }
@@ -68,9 +59,15 @@ page 50112 "PuppyMgtServiceSetup_TD"
             group(Step2)
             {
                 ShowCaption = false;
-                InstructionalText = 'Step2 - Replace this text with some instructions.';
+                InstructionalText = 'Enter a Vet Appointment service endpoint and authentication information.';
                 Visible = Step = Step::EndpointSetup;
-                //You might want to add fields here
+
+                field("API Endpoint"; Rec."API Endpoint")
+                {
+                    ToolTip = 'API Endpoint';
+                    ExtendedDatatype = URL;
+                    ShowMandatory = true;
+                }
             }
 
 
@@ -78,11 +75,7 @@ page 50112 "PuppyMgtServiceSetup_TD"
             {
                 ShowCaption = false;
                 Visible = Step = Step::Finish;
-                group(Group23)
-                {
-                    ShowCaption = false;
-                    InstructionalText = 'Step3 - Replace this text with some instructions.';
-                }
+
                 group("That's it!")
                 {
                     Caption = 'That''s it!';
@@ -150,8 +143,8 @@ page 50112 "PuppyMgtServiceSetup_TD"
         Rec.Init();
         if VetServiceSetup.Get() then
             Rec.TransferFields(VetServiceSetup);
-        Rec.Insert();
-        Step := Step::Start;
+        if Rec.Insert() then;
+        Step := (Rec."API Endpoint" <> '') ? Step::EndpointSetup : Step::Start;
     end;
 
     var
@@ -163,18 +156,18 @@ page 50112 "PuppyMgtServiceSetup_TD"
         // TODO: add a point to presentaiton to make sure we use SecretText and do not store secrets in table field directly.
         TopBannerVisible: Boolean;
 
-    local procedure StoreVetServiceSetup()
+    local procedure StorePuppyMgtSetup()
     var
-        VetServiceSetup: Record PuppyMgtSetup_TD;
+        PuppyMgtSetup: Record PuppyMgtSetup_TD;
     begin
-        VetServiceSetup.InsertIfNotExists();
-        VetServiceSetup.TransferFields(Rec, false);
-        VetServiceSetup.Modify(true);
+        PuppyMgtSetup.InsertIfNotExists();
+        PuppyMgtSetup.TransferFields(Rec, false);
+        PuppyMgtSetup.Modify(true);
     end;
 
     local procedure FinishAction()
     begin
-        StoreVetServiceSetup();
+        StorePuppyMgtSetup();
         CurrPage.Close();
     end;
 
@@ -197,4 +190,3 @@ page 50112 "PuppyMgtServiceSetup_TD"
                 TopBannerVisible := MediaResourcesDone."Media Reference".HasValue();
     end;
 }
-*/

@@ -1,11 +1,11 @@
-namespace BCTechDays.PuppyMgt.HTTPClients;
+namespace BCTechDays.PuppyMgt.HTTPClient;
 
 using System.Threading;
 using System.RestClient;
 using BCTechDays.PuppyMgt.Common;
 using BCTechDays.PuppyMgt.VetAppointment;
 
-codeunit 50102 "HTTPClientsVetApptProvider_TD" implements "IVetAppointmentProvider_TD"
+codeunit 50102 "HTTPClientVetApptProvider_TD" implements "IVetAppointmentProvider_TD"
 {
     Access = Internal;
     TableNo = "Job Queue Entry";
@@ -13,14 +13,8 @@ codeunit 50102 "HTTPClientsVetApptProvider_TD" implements "IVetAppointmentProvid
     InherentPermissions = X;
 
     procedure RequestAppointment(var VetAppointment: Record "VetAppointment_TD")
-    var
-        JobQueueEntry: Record "Job Queue Entry";
-        JobQueueManagement: Codeunit "Job Queue Management";
     begin
-        JobQueueEntry.Init();
-        JobQueueEntry.Validate("Object Type to Run", JobQueueEntry."Object Type to Run"::Codeunit);
-        JobQueueEntry.Validate("Object ID to Run", Codeunit::HTTPClientsVetApptProvider_TD);
-        JobQueueManagement.CreateJobQueueEntry(JobQueueEntry);
+        CreateJobQueueEntry(Codeunit::HTTPClientVetApptProvider_TD)
     end;
 
     trigger OnRun()
@@ -32,12 +26,11 @@ codeunit 50102 "HTTPClientsVetApptProvider_TD" implements "IVetAppointmentProvid
         Client: Codeunit "Http Client Handler";
         RequestMessage: Codeunit "Http Request Message";
         ResponseMessage: Codeunit "Http Response Message";
-        VetAppointmentRecRef: RecordRef;
         CurrHttpClientInstance: HttpClient;
         RequestObject: JsonObject;
+        ResponseJsonObject: JsonObject;
     begin
-        VetAppointmentRecRef.Get(Rec."Record ID to Process");
-        VetAppointmentRecRef.SetTable(VetAppointment);
+        VetAppointment.Get(Rec."Record ID to Process");
         VetAppointment.LockTable();
         Puppy.Get(VetAppointment."Puppy No.");
         if not PuppyMgtSetup.IsEnabled() then
@@ -57,9 +50,20 @@ codeunit 50102 "HTTPClientsVetApptProvider_TD" implements "IVetAppointmentProvid
         // handle response
         if not ResponseMessage.GetIsSuccessStatusCode() then
             Error('Vet service request failed with status code %1', ResponseMessage.GetHttpStatusCode());
+        ResponseJsonObject := ResponseMessage.GetContent().AsJson().AsObject();
+        VetAppointment."External Reference" := CopyStr(ResponseJsonObject.GetText('appointmentId'), 1, 100);
+        VetAppointment."Appointment DateTime" := ResponseJsonObject.GetDateTime('appointmentDatetime');
+        VetAppointment.Modify(true);
+    end;
 
-        //Json.InitializeObject(ResponseMessage.GetContent().AsText());
-        //Json.GetValueAndSetToRecFieldNo(VetAppointmentRecRef, '*.appointmentDaeTime', VetAppointment.FieldNo("Appointment DateTime"));
-        // TODO: add response handling
+    internal procedure CreateJobQueueEntry(ObjectIDToRun: Integer)
+    var
+        JobQueueEntry: Record "Job Queue Entry";
+        JobQueueManagement: Codeunit "Job Queue Management";
+    begin
+        JobQueueEntry.Init();
+        JobQueueEntry.Validate("Object Type to Run", JobQueueEntry."Object Type to Run"::Codeunit);
+        JobQueueEntry.Validate("Object ID to Run", ObjectIDToRun);
+        JobQueueManagement.CreateJobQueueEntry(JobQueueEntry);
     end;
 }

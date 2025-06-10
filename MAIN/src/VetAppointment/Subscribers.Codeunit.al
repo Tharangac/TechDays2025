@@ -1,8 +1,10 @@
 namespace BCTechDays.PuppyMgt.VetAppointment;
 
+using System.Utilities;
+using Microsoft.Utilities;
 using BCTechDays.PuppyMgt.Common;
 
-codeunit 50104 "VetAppointmentSubscribers_TD"
+codeunit 50104 "Subscribers_TD"
 {
     Access = Internal;
     SingleInstance = true;
@@ -30,5 +32,24 @@ codeunit 50104 "VetAppointmentSubscribers_TD"
     begin
         PuppyMgtSetup.Get();
         exit(PuppyMgtSetup."Integration Type");
+    end;
+
+    [EventSubscriber(ObjectType::Table, Database::"Service Connection", OnRegisterServiceConnection, '', false, false)]
+    local procedure OnRegisterServiceConnection(var ServiceConnection: Record "Service Connection" temporary)
+    var
+        PuppyMgtSetup: Record PuppyMgtSetup_TD;
+        UrlBuilder: Codeunit "Uri Builder";
+        DummyRecordID: RecordID;
+        ServiceNameTxt: Label 'Vet Appointment Service';
+    begin
+        PuppyMgtSetup.InsertIfNotExists();
+        if PuppyMgtSetup."API Endpoint" <> '' then
+            UrlBuilder.Init(PuppyMgtSetup."API Endpoint");
+        ServiceConnection.InsertServiceConnection(
+            ServiceConnection,
+            DummyRecordID,
+            ServiceNameTxt,
+            (PuppyMgtSetup."API Endpoint" <> '') ? UrlBuilder.GetHost() : '',
+            Page::VetAppointmentServiceSetup_TD);
     end;
 }
