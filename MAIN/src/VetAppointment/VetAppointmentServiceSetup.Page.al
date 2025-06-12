@@ -3,8 +3,6 @@ namespace BCTechDays.PuppyMgt.VetAppointment;
 using System.Utilities;
 using System.Environment;
 using BCTechDays.PuppyMgt.Common;
-using BCTechDays.PuppyMgt.RESTClient;
-using BCTechDays.PuppyMgt.HTTPClient;
 
 page 50112 "VetAppointmentServiceSetup_TD"
 {

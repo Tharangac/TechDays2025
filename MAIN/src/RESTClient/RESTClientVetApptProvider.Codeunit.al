@@ -43,47 +43,8 @@ codeunit 50103 "RESTClientVetApptProvider_TD" implements "IVetAppointmentProvide
     var
         Puppy: Record Puppy_TD;
     begin
-        ParsingTechnics();
         Puppy.Get(VetAppointment."Puppy No.");
         Payload.Add('petName', Puppy.Name);
         Payload.Add('petBreed', Puppy.Breed);
-    end;
-
-    local procedure ParsingTechnics()
-    var
-        JsonObject: JsonObject;
-        ElementJsonToken: JsonToken;
-        JsonToken: JsonToken;
-        Value: Variant;
-        DefaultIfNotFound: Boolean;
-        "Key": Text;
-    begin
-        JsonObject.ReadFrom('{"propArray": [{"some":"other"}], "propObject": {"prop1": "value1", "prop2": "value2"}}');
-        Value := JsonObject.GetArray('propArray', DefaultIfNotFound);
-        Value := JsonObject.GetBigInteger('propBigInt', DefaultIfNotFound);
-        Value := JsonObject.GetBoolean('propBool', DefaultIfNotFound);
-        Value := JsonObject.GetByte('propByte', DefaultIfNotFound);
-        Value := JsonObject.GetChar('propChar', DefaultIfNotFound);
-        Value := JsonObject.GetDate('propDate', DefaultIfNotFound);
-        Value := JsonObject.GetDateTime('propDateTime', DefaultIfNotFound);
-        Value := JsonObject.GetDecimal('propDecimal', DefaultIfNotFound);
-        Value := JsonObject.GetDuration('propDuration', DefaultIfNotFound);
-        Value := JsonObject.GetInteger('propInt', DefaultIfNotFound);
-        Value := JsonObject.GetObject('propObject', DefaultIfNotFound);
-        Value := JsonObject.GetOption('propOption', DefaultIfNotFound);
-        Value := JsonObject.GetText('propText', DefaultIfNotFound);
-        Value := JsonObject.GetTime('propTime', DefaultIfNotFound);
-
-        // loop through array
-        foreach ElementJsonToken in JsonObject.GetArray('propArray', DefaultIfNotFound) do begin
-            // parsing ElementJsonToken
-            // ...
-        end;
-
-        // loop through object properties
-        foreach "Key" in JsonObject.Keys() do begin
-            Value := JsonObject.GetText(Key, DefaultIfNotFound)
-            // ...
-        end;
     end;
 }
