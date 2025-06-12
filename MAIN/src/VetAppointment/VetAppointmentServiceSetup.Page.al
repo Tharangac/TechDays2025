@@ -68,11 +68,16 @@ page 50112 "VetAppointmentServiceSetup_TD"
                 {
                     ToolTip = 'Integration Type';
                     ShowMandatory = true;
+
+                    trigger OnValidate()
+                    begin
+                        HTTPClientConnectionInfoVisible := Rec."Integration Type" in [Rec."Integration Type"::HTTPClient, Rec."Integration Type"::RESTClient];
+                    end;
                 }
                 group(HTTPClientConnectionInfo)
                 {
                     ShowCaption = false;
-                    Visible = Rec."Integration Type" in [Rec."Integration Type"::HTTPClient, Rec."Integration Type"::RESTClient];
+                    Visible = HTTPClientConnectionInfoVisible;
 
                     field("API Endpoint"; Rec."API Endpoint")
                     {
@@ -166,6 +171,7 @@ page 50112 "VetAppointmentServiceSetup_TD"
         Step: Option Start,EndpointSetup,Finish;
         // TODO: add a point to presentaiton to make sure we use SecretText and do not store secrets in table field directly.
         TopBannerVisible: Boolean;
+        HTTPClientConnectionInfoVisible: Boolean;
 
     local procedure StorePuppyMgtSetup()
     var
