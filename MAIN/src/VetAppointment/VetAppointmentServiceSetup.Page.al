@@ -3,6 +3,7 @@ namespace BCTechDays.PuppyMgt.VetAppointment;
 using System.Utilities;
 using System.Environment;
 using BCTechDays.PuppyMgt.Common;
+using BCTechDays.PuppyMgt.RESTClient;
 using BCTechDays.PuppyMgt.HTTPClient;
 
 page 50112 "VetAppointmentServiceSetup_TD"
@@ -71,7 +72,7 @@ page 50112 "VetAppointmentServiceSetup_TD"
                 group(HTTPClientConnectionInfo)
                 {
                     ShowCaption = false;
-                    Visible = Rec."Integration Type" = Rec."Integration Type"::HTTPClient;
+                    Visible = Rec."Integration Type" in [Rec."Integration Type"::HTTPClient, Rec."Integration Type"::RESTClient];
 
                     field("API Endpoint"; Rec."API Endpoint")
                     {
