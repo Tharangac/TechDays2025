@@ -50,5 +50,8 @@ codeunit 50104 "Subscribers_TD"
             ServiceNameTxt,
             (PuppyMgtSetup."API Endpoint" <> '') ? UrlBuilder.GetHost() : '',
             Page::VetAppointmentServiceSetup_TD);
+
+        ServiceConnection.Status := ServiceConnection.Status::Enabled;
+        ServiceConnection.Modify(true);
     end;
 }
